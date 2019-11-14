@@ -1,7 +1,6 @@
 .divTask {
     margin-top: 25px;
-    margin-left: 490px;
-    border: 1px solid black;
+    border: 2px solid black;
     width: 380px;
     height: 40px;
     display: flex;

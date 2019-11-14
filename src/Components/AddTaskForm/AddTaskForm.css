@@ -1,0 +1,19 @@
+.divTaskForm {
+    margin-top: 50px;
+}
+.inputTaskForm {
+width: 300px;
+height: 25px;
+margin-right: 25px;
+outline: none;
+}
+.btnTaskForm {
+    display: inline-block;
+    width: 50px;
+    height: 33px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

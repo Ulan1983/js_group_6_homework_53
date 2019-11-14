@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import nanoid from 'nanoid';
 
+
 import AddTaskForm from './Components/AddTaskForm/AddTaskForm';
 import Task from './Components/Task/Task';
 
@@ -8,7 +9,9 @@ class App extends Component {
   state = {
     tasks: [
       { id: nanoid(), text: 'Buy products' },
-      { id: nanoid(), text: 'Play with daughter' }
+      { id: nanoid(), text: 'Play with daughter' },
+      { id: nanoid(), text: 'Do exercises' },
+      { id: nanoid(), text: 'Pay bill for electricity' },
     ],
 
     newTask: ''
@@ -18,10 +21,10 @@ class App extends Component {
     this.setState({ newTask: event.target.value });
   };
 
-  addTask = () => {
+  addTask = event => {
+    event.preventDefault();
     const tasks = [...this.state.tasks];
-    const task = { id: nanoid(), text: this.state.newTask };
-    tasks.push(task);
+    tasks.push({ id: nanoid(), text: this.state.newTask });
     this.setState({ tasks })
   };
 
@@ -38,20 +41,18 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <div className='container'>
-          <AddTaskForm
-            onChange={this.createNewTask}
-            addTask={() => this.addTask(this.state.newTask)}
+        <AddTaskForm
+          onChange={this.createNewTask}
+          onClick={this.addTask}
+          text={this.state.newTask}
+        />
+        {this.state.tasks.map((task) => (
+          <Task
+            key={task.id}
+            text={task.text}
+            onRemove={() => this.removeTask(task.id)}
           />
-          {this.state.tasks.map((task) => (
-            <Task
-              key={task.id}
-              text={task.text}
-              onRemove={() => this.removeTask(task.id)}
-            />
-          ))}
-
-        </div>
+        ))}
       </div>
     );
   }

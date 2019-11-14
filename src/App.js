@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import nanoid from 'nanoid';
 
-
 import AddTaskForm from './Components/AddTaskForm/AddTaskForm';
 import Task from './Components/Task/Task';
 
@@ -35,15 +34,12 @@ class App extends Component {
     this.setState({ tasks });
   };
 
-
-
-
   render() {
     return (
       <div className="App" >
         <AddTaskForm
           onChange={this.createNewTask}
-          onClick={this.addTask}
+          onSubmit={this.addTask}
           text={this.state.newTask}
         />
         {this.state.tasks.map((task) => (

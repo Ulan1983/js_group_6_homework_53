@@ -4,7 +4,7 @@ import './AddTaskForm.css';
 const AddTaskForm = props => {
     return (
         <div className='divTaskForm'>
-            <form onSubmit={props.onClick}>
+            <form onSubmit={props.onSubmit}>
                 <input type='text' className='inputTaskForm' value={props.text} onChange={props.onChange} placeholder='Create task' />
                 <button className='btnTaskForm' type='submit'>Add</button>
             </form>

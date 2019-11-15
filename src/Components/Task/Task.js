@@ -6,7 +6,7 @@ const Task = props => {
         <div className='divTask'>
             <p className='textId'>{props.key}</p>
             <p className='textTask'>{props.text}</p>
-            <button className='btnTask' type='submit' onClick={props.onRemove}>Delete</button>
+            <i className='far fa-trash-alt' onClick={props.onRemove} style={{ fontSize: '25px', color: 'red', paddingTop: '7px', paddingRight: '10px', cursor: 'pointer' }} />
         </div>
     )
 }
